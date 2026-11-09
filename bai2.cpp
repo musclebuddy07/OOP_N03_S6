@@ -13,7 +13,6 @@ private:
 public:
     phuong_tien();
     phuong_tien(int ma, string loai, int gio, int tg);
-
     int lay_ma_xe() const;
     string lay_loai_xe() const;
     double tinh_phi() const;
@@ -49,8 +48,9 @@ class bai_xe {
 private:
     int ma_bai;
     char kich_thuoc;
-    phuong_tien pt1, pt2, pt3;   // sau này dùng mảng
-    bool co1, co2, co3;
+    static const int Max_Xe = 3;
+    phuong_tien ds_xe [Max_Xe];
+    int so_luong_xe;
 
 public:
     bai_xe();
@@ -126,7 +126,7 @@ bool bai_xe::co_loai(string loai, int& dem, double& tong) const {
 
 class SystemInterface {
 private:
-    bai_xe bai1, bai2, bai3;   // sau này dùng mảng
+    bai_xe bai1, bai2, bai3;   // sau này dùng m?ng
     bool co1, co2, co3;
 
 public:
@@ -151,7 +151,7 @@ void SystemInterface::runMenu() {
         cout << "9. Thoat\n";
         cout << "Chon: ";
         cin >> chon;
-//các e chuyển sang lệnh switch cho thầy
+//các e chuy?n sang l?nh switch cho th?y
         if (chon == 1) {
             int ma; char kt;
             cout << "Ma bai: "; cin >> ma;
